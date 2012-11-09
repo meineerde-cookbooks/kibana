@@ -1,0 +1,5 @@
+module KibanaConfig
+<% @config.each_pair do |key, value| %>
+  <%= key %> = <%= value.inspect %>
+<% end %>
+end

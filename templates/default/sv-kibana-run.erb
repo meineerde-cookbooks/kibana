@@ -1,0 +1,6 @@
+#!/bin/sh
+PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin<% if node['languages']['ruby']['gem_bin'] %>:<%= node['languages']['ruby']['gem_bin'] %>/bin<% end -%>
+exec 2>&1
+
+cd <%= Shellwords.escape "#{node['logstash']['basedir']}/kibana/current/" %>
+exec chpst -u<%= Shellwords.escape node['logstash']['user'] %> bundle exec <%= Shellwords.escape node['languages']['ruby']['ruby_bin'] %> kibana.rb

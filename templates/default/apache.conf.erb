@@ -1,0 +1,16 @@
+<VirtualHost *:<%= @server_port %>>
+  ServerName <%= @application_name %>
+  DocumentRoot "<%= @docroot %>"
+
+  LogLevel warn
+  ErrorLog <%= node['apache']['log_dir'] %>/<%= @application_name %>-error.log
+  CustomLog <%= node['apache']['log_dir'] %>/<%= @application_name %>-access.log combined
+
+  <Directory "<%= @docroot %>">
+    Order Allow,Deny
+    Allow from all
+
+    PassengerEnabled on
+    RackEnv production
+  </Directory>
+</VirtualHost>
