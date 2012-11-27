@@ -1,5 +1,5 @@
 include_recipe "kibana::default"
-include_recipe "passenger_apache2"
+include_recipe "passenger_apache2::mod_rails"
 
 kibana_dir = "#{node['logstash']['basedir']}/kibana"
 web_app node['kibana']['server_name'] do
