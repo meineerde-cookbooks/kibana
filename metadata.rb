@@ -9,6 +9,8 @@ depends "git"
 depends "logstash"
 depends "runit"
 depends "build-essential"
+depends "apache2"
+depends "passenger_apache2"
 
 %w{ debian ubuntu }.each do |os|
   supports os
