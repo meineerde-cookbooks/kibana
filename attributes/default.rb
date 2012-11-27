@@ -9,13 +9,15 @@ default['kibana']['init_style'] = 'init'
 default['kibana']['server_name'] = node['ipaddress']
 default['kibana']['server_port'] = 80
 
-
+default['kibana']['apache_template'] = "apache.conf.erb"
+default['kibana']['apche_cookbook'] = "kibana"
 
 #############################################################################
 # CONFIGURATION
 # See https://github.com/rashidkpc/Kibana/blob/kibana-ruby/KibanaConfig.rb
 # for a description of the configuration values
 
+# These two settings are only relevant for running Kibana standalone
 default['kibana']['config']['KibanaPort'] = 5601
 default['kibana']['config']['KibanaHost'] = "0.0.0.0"
 

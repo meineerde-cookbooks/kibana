@@ -1,12 +1,12 @@
-<VirtualHost *:<%= @server_port %>>
+<VirtualHost *:<%= @params[:server_port] %>>
   ServerName <%= @application_name %>
-  DocumentRoot "<%= @docroot %>"
+  DocumentRoot "<%= @params[:docroot] %>"
 
   LogLevel warn
   ErrorLog <%= node['apache']['log_dir'] %>/<%= @application_name %>-error.log
   CustomLog <%= node['apache']['log_dir'] %>/<%= @application_name %>-access.log combined
 
-  <Directory "<%= @docroot %>">
+  <Directory "<%= @params[:docroot] %>">
     Order Allow,Deny
     Allow from all
 
