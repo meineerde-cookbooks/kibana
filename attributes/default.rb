@@ -10,7 +10,7 @@ default['kibana']['server_name'] = node['ipaddress']
 default['kibana']['server_port'] = 80
 
 default['kibana']['apache_template'] = "apache.conf.erb"
-default['kibana']['apche_cookbook'] = "kibana"
+default['kibana']['apache_cookbook'] = "kibana"
 
 #############################################################################
 # CONFIGURATION
