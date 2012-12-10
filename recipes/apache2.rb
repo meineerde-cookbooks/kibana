@@ -3,8 +3,8 @@ include_recipe "passenger_apache2::mod_rails"
 
 kibana_dir = "#{node['logstash']['basedir']}/kibana"
 web_app node['kibana']['server_name'] do
-  template "apache.conf.erb"
-  cookbook "kibana"
+  template node['kibana']['apache_template']
+  cookbook node['kibana']['apache_cookbook']
 
   docroot "#{kibana_dir}/current/public"
   server_port node['kibana']['server_port']
