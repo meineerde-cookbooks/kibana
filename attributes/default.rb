@@ -34,9 +34,11 @@ default['kibana']['config']['Export_show'] = 2000
 default['kibana']['config']['Export_delimiter'] = ','
 default['kibana']['config']['Filter'] = ''
 default['kibana']['config']['Smart_index'] = true
-default['kibana']['config']['Smart_index_pattern'] = ['logstash-%Y.%m.%d']
+default['kibana']['config']['Smart_index_pattern'] = ['logstash-%Y.%m.%d.%H']
+default['kibana']['config']['Smart_index_step'] = 3600
 default['kibana']['config']['Smart_index_limit'] = 150
 default['kibana']['config']['Facet_index_limit'] = 1
+
 
 # You probably don't want to touch anything below this line
 # unless you really know what you're doing
