@@ -24,6 +24,8 @@ end
 
 kibana_config = node['kibana']['config'].to_hash
 kibana_config['Elasticsearch'] = Array(es_server_ip).collect{|ip| "#{ip}:9200"}
+kibana_config['Default_fields'] << '@message' if kibana_config['Default_fields'].empty?
+kibana_config['Smart_index_pattern'] = Array(kibana_config['Smart_index_pattern'])
 
 kibana_dir = "#{node['logstash']['basedir']}/kibana"
 [kibana_dir, "#{kibana_dir}/shared"].each do |dir|
