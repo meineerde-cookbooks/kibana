@@ -14,3 +14,9 @@ if File.exists?("#{kibana_dir}/current")
   d = resources(:deploy_revision => "Kibana")
   d.restart_command "touch \"#{kibana_dir}/current/tmp/restart.txt\""
 end
+
+execute "restart Kibana" do
+  command "touch \"#{kibana_dir}/current/tmp/restart.txt\""
+  action :nothing
+  subscribes :run, resources(:template => "#{kibana_dir}/shared/KibanaConfig.rb")
+end
