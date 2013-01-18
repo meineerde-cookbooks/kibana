@@ -70,13 +70,6 @@ deploy_revision "Kibana" do
   })
 
   before_migrate do
-    link "#{release_path}/public" do
-      to "#{release_path}/static"
-
-      owner node['logstash']['user']
-      group node['logstash']['group']
-    end
-
     execute "bundle install" do
       cwd release_path
       user 'root'
